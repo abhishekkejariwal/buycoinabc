@@ -84,8 +84,8 @@
   <script language="javascript" type="text/javascript">
     $(document).ready(function() {
       $.getJSON('https://www.zebapi.com/api/v1/market/ticker/btc/inr', function(data) {
-        $('#buyId').text("Buy : Rs " +round(data.buy*1.05));
-        $('#sellId').text("Sell : Rs "+round(data.sell/1.05));
+        $('#buyId').text("Buy : Rs " +Math.round(data.buy*1.05));
+        $('#sellId').text("Sell : Rs "+Math.round(data.sell/1.05));
       });
     });
   </script>
