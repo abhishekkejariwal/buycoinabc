@@ -64,7 +64,7 @@
                 <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1"><br><br>Buy Bitcoin in Cash<br></h1>
                 
                 <p class="mbr-text pb-3 mbr-fonts-style display-5">India's first Bitcoin cash ATM<br>13,656 users interacting everyday<br>India's largest chat based buy-sell crypto community</p>
-                <div class="mbr-section-btn"><a class="btn btn-md btn-secondary display-4" href="https://api.whatsapp.com/send?phone=919027454416&text=I'm%20interested%20in%20buying%20bitcoin" target="_blank">Buy</a>  <a class="btn btn-md btn-primary display-4" href="https://api.whatsapp.com/send?phone=919027454416&text=I'm%20interested%20in%20selling%20bitcoin" target="_blank">Sell</a></div>
+                <div class="mbr-section-btn"><a id="buyId" class="btn btn-md btn-secondary display-4" href="https://api.whatsapp.com/send?phone=919027454416&text=I'm%20interested%20in%20buying%20bitcoin" target="_blank">Buy</a>  <a id="sellId" class="btn btn-md btn-primary display-4" href="https://api.whatsapp.com/send?phone=919027454416&text=I'm%20interested%20in%20selling%20bitcoin" target="_blank">Sell</a></div>
             </div>
         </div>
     </div>
@@ -81,6 +81,14 @@
   <script src="assets/dropdown/js/script.min.js"></script>
   <script src="assets/touch-swipe/jquery.touch-swipe.min.js"></script>
   <script src="assets/theme/js/script.js"></script>
+  <script language="javascript" type="text/javascript">
+    $(document).ready(function() {
+      $.getJSON('https://www.zebapi.com/api/v1/market/ticker/btc/inr', function(data) {
+        $('#buyId').text("Buy : Rs " +Math.round(data.buy*1.05));
+        $('#sellId').text("Sell : Rs "+Math.round(data.sell/1.05));
+      });
+    });
+  </script>
   
   
 </body>
