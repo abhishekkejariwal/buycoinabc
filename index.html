@@ -82,11 +82,14 @@
   <script src="assets/theme/js/script.js"></script>
   
   <script language="javascript" type="text/javascript">
-      $(document).ready(function() {
-  console.log("yo");
-}
+    $(document).ready(function() {
+      $.getJSON('zebapi.com/api/v1/market/ticker/btc/inr', function(data) {
+        $('#buyId').text("Buy : " +data.buy);
+        $('#buyId').text("Sell : "+data.sell);
+      }
+    }
   );
-    </script>
+  </script>
   
 </body>
 </html>
